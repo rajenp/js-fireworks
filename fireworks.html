@@ -21,7 +21,7 @@
             opacity: 1;
             width: 0;
             height: 0;
-            border: 3px solid transparent;
+            border: 4px solid transparent;
             border-top: 10px solid red;
             position: absolute;
 
@@ -180,7 +180,7 @@ Extend(Cracker, Object, {
         options.startPoint = {x: options.startPoint.x || Cracker.START_AT.x, y: options.startPoint.y || Cracker.START_AT.y};
         var _crackerDiv = document.createElement('div');
         _crackerDiv.className = "cracker";
-        Utils.applyStyle(_crackerDiv, {/*transform:"translate("+options.startPoint.x + "px, "+options.startPoint.y + "px"+")", */left: options.startPoint.x + "px", top: options.startPoint.y + "px", borderTop: Utils.getRandom(10, 50)+"px solid "+ Utils.getRandomColor()});//borderTopColor: Utils.getRandomColor()});
+        Utils.applyStyle(_crackerDiv, {/*transform:"translate("+options.startPoint.x + "px, "+options.startPoint.y + "px"+")", */left: options.startPoint.x + "px", top: options.startPoint.y + "px", borderWidth: this._options.width+"px", borderTop: Utils.getRandom(20, 50)+"px solid "+ Utils.getRandomColor()});//borderTopColor: Utils.getRandomColor()});
         this._crackerDiv = _crackerDiv;
         this.place(options.placeAt || document.body);
     },
@@ -228,7 +228,7 @@ Extend(Cracker, Object, {
             var x = parseInt(this._crackerDiv.style.left);
             var y = parseInt(this._crackerDiv.style.top);
             while(splitCount--) {
-                var firePiece = new Cracker({startPoint: {x: x, y: y}});
+                var firePiece = new Cracker({width: Utils.getRandom(1, 8), startPoint: {x: x, y: y}});
                 var rotateAngle = ((splitCount + 1) * angle);
                 firePiece.place(document.body);
                 var point = Utils.getPointFor(rotateAngle, Utils.getRandom(randomRadius, randomRadius + 150), {x: x, y: y});
