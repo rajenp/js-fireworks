@@ -33,9 +33,17 @@
         }
         body { background: #000;}
         .info { color: white; text-align: center;}
+        .noselect {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
     </style>
 </head>
-<body>
+<body class="noselect">
 <h1 class="info">Click anywhere to fire! You can also click multiple times.</h1>
 <script>
 //To check if object is an array
